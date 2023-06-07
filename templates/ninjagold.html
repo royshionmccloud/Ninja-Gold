@@ -9,17 +9,17 @@
 </head>
 <body class="bg-danger">
 <div class="container">
-    <h1 class="text-info bg-dark">Welcome To Ninja Gold!</h1>
+    <h1 class="text-info bg-dark shadow-lg p-3 mb-5">Welcome To Ninja Gold!</h1>
     <div class="d-flex justify-content-around">
-        <p class="text-info">Your gold: {{ session['total_gold'] }} </p>
-        <p class="text-info">Your moves: {{ session['total_moves'] }} </p>
+        <p class="text-info shadow-lg p-3 mb-5 ">Your gold: {{ session['total_gold'] }} </p>
+        <p class="text-info shadow-lg p-3 mb-5">Your moves: {{ session['total_moves'] }} </p>
         {% if session['total_moves'] <= 14 and session['total_gold'] == 500 or session['total_moves'] > 14 and session['total_gold'] != 500: %}
-        <a href="/destroy_session"> Reset Gold</a>
+        <a href="/destroy_session"class="shadow-lg p-3 mb-5"> Reset Gold</a>
         {% endif %}
     </div>
     <div class="d-flex justify-content-around">
         <div class="card text-bg-warning p-3">
-            <div class="card body p-5" style="width: 18rem;">
+            <div class="card body p-5 shadow-lg p-3 mb-5" style="width: 18rem;">
                 <form action="/process_money" method="post">
                     <h1 >Farm</h1>
                     <p>(earns 10-20 golds)</p>
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="card text-bg-warning p-3">
-            <div class="card body p-5" style="width: 18rem;">
+            <div class="card body p-5 shadow-lg p-3 mb-5" style="width: 18rem;">
                 <form action="/process_money" method="post" >
                     <h1>Cave</h1>
                     <p>(earns 5-10 golds)</p>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="card text-bg-warning p-3">
-            <div class="card body p-5" style="width: 18rem;">
+            <div class="card body p-5 shadow-lg p-3 mb-5" style="width: 18rem;">
                 <form action="/process_money" method="post">
                     <h1>House</h1>
                     <p>(earns 2-5 golds)</p>
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="card text-bg-warning p-3">
-            <div class="card body p-5" style="width: 18rem;">
+            <div class="card body p-5 shadow-lg p-3 mb-5" style="width: 18rem;">
                 <form action="/process_money" method="post">
                     <h1>Casino</h1>
                     <p>(earns/takes away 0-50 golds)</p>
@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="container border border-warning bg-white" data-bs-spy="scroll" data-bs-target="#example2">
+    <div class="container border border-warning bg-white shadow-lg" data-bs-spy="scroll" data-bs-target="#example2">
         <h1 class="text-warning">Activities</h1>
         {{message|safe}}
     </div>
