@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Ninja Gold</title>
+</head>
+<body class="bg-danger">
+<div class="container">
+    <h1 class="text-info bg-dark">Welcome To Ninja Gold!</h1>
+    <div class="d-flex justify-content-around">
+        <p class="text-info">Your gold: {{ session['total_gold'] }} </p>
+        <p class="text-info">Your moves: {{ session['total_moves'] }} </p>
+        {% if session['total_moves'] <= 14 and session['total_gold'] == 500 or session['total_moves'] > 14 and session['total_gold'] != 500: %}
+        <a href="/destroy_session"> Reset Gold</a>
+        {% endif %}
+    </div>
+    <div class="d-flex justify-content-around">
+        <div class="card text-bg-warning p-3">
+            <div class="card body p-5" style="width: 18rem;">
+                <form action="/process_money" method="post">
+                    <h1 >Farm</h1>
+                    <p>(earns 10-20 golds)</p>
+                    <input type="hidden" name="building" value="farm">
+                    <input type="submit" value="Find Gold">
+                </form>
+            </div>
+        </div>
+        <div class="card text-bg-warning p-3">
+            <div class="card body p-5" style="width: 18rem;">
+                <form action="/process_money" method="post" >
+                    <h1>Cave</h1>
+                    <p>(earns 5-10 golds)</p>
+                    <input type="hidden" name="building" value="cave">
+                    <input type="submit" value="Find Gold">
+                </form>
+            </div>
+        </div>
+        <div class="card text-bg-warning p-3">
+            <div class="card body p-5" style="width: 18rem;">
+                <form action="/process_money" method="post">
+                    <h1>House</h1>
+                    <p>(earns 2-5 golds)</p>
+                    <input type="hidden" name="building" value="house">
+                    <input type="submit" value="Find Gold">
+                </form>
+            </div>
+        </div>
+        <div class="card text-bg-warning p-3">
+            <div class="card body p-5" style="width: 18rem;">
+                <form action="/process_money" method="post">
+                    <h1>Casino</h1>
+                    <p>(earns/takes away 0-50 golds)</p>
+                    <input type="hidden" name="building" value="casino">
+                    <input type="submit" value="Find Gold">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container border border-warning bg-white" data-bs-spy="scroll" data-bs-target="#example2">
+        <h1 class="text-warning">Activities</h1>
+        {{message|safe}}
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
